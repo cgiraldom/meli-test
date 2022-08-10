@@ -1,12 +1,22 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import { SearchBar } from './components';
+import { MainLayout } from './layouts';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <SearchBar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MainLayout>
+              <></>
+            </MainLayout>
+          }
+        />
+      </Routes>
     </div>
   );
 }
