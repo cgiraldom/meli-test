@@ -1,4 +1,4 @@
-import { Item, ItemDetails } from '../item';
+import { Item, ItemDetails, Category } from '../item';
 
 export interface ItemService {
   searchItems(query: string): Promise<SearchResult>;
@@ -6,6 +6,6 @@ export interface ItemService {
 }
 
 export type SearchResult = {
-  categories: Array<string>;
+  categories: Array<Category>;
   items: Array<Item>;
 };

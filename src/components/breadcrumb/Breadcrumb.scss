@@ -1,0 +1,24 @@
+@import 'src/index.scss';
+
+.categories-breadcrumb {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+
+  & .category {
+    font-size: 14px;
+    color: $meli-medium-gray;
+
+    &:last-child {
+      font-weight: bold;
+    }
+  }
+
+  & .breadcrumb-separator {
+    margin: 0 4px;
+    color: $meli-medium-gray;
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+

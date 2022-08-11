@@ -18,3 +18,8 @@ export type ItemPrice = {
   amount: number;
   decimals: number;
 };
+
+export type Category = {
+  id: string;
+  name: string;
+};
