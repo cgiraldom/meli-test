@@ -1,14 +1,17 @@
 import React from 'react';
 
+import { Item } from '../../domain/item';
 import { ItemCard } from './item';
-import { testItem } from './item/__test__/testData';
 import './SearchResults.scss';
 
-export const SearchResults = (): JSX.Element => (
+type SearchResultsProps = {
+  foundItems: Array<Item>;
+};
+
+export const SearchResults = ({ foundItems }: SearchResultsProps): JSX.Element => (
   <div className="results-container">
-    <ItemCard item={testItem} handleClick={() => {}} />
-    <ItemCard item={testItem} handleClick={() => {}} />
-    <ItemCard item={testItem} handleClick={() => {}} />
-    <ItemCard item={testItem} handleClick={() => {}} />
+    {foundItems.map(item => {
+      return <ItemCard key={item.id} item={item} handleClick={() => {}} />;
+    })}
   </div>
 );

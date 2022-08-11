@@ -2,7 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { MainLayout } from './layouts';
-import { SearchResults } from './components/searchResults';
+import { SearchPage } from './pages/search';
+import { testService } from './tests/testService';
 import './App.scss';
 
 function App() {
@@ -18,10 +19,10 @@ function App() {
           }
         />
         <Route
-          path="items"
+          path="/items"
           element={
             <MainLayout>
-              <SearchResults />
+              <SearchPage itemService={testService} />
             </MainLayout>
           }
         />
