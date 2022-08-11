@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { MainLayout } from './layouts';
+import { SearchResults } from './components/searchResults';
 import './App.scss';
 
 function App() {
@@ -13,6 +14,14 @@ function App() {
           element={
             <MainLayout>
               <></>
+            </MainLayout>
+          }
+        />
+        <Route
+          path="items"
+          element={
+            <MainLayout>
+              <SearchResults />
             </MainLayout>
           }
         />

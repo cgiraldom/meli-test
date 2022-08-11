@@ -1,18 +1,10 @@
 @import-normalize;
+@import 'src/styles/reset.scss';
 
 $meli-yellow: #FFE600;
 $meli-black: #333333;
-$meli-dark-gray: #999999;
+$meli-dark-gray: #666666;
+$meli-medium-gray: #999999;
 $meli-light-gray: #EEEEEE;
 
-body {
-  margin: 0;
-  font-family: "Proxima Nova",Roboto,Arial,sans-serif,sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

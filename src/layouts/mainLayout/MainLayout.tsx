@@ -6,7 +6,7 @@ export const MainLayout = ({ children }: { children: JSX.Element }): JSX.Element
   return (
     <>
       <SearchBar />
-      {children}
+      <main>{children}</main>
     </>
   );
 };
