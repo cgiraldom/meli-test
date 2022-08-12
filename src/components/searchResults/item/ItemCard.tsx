@@ -1,20 +1,14 @@
 import React from 'react';
 
-import { Item, ItemPrice } from '../../../domain/item';
+import { Item } from '../../../domain/item';
 import FreeShippingLogo from '../../../assets/ic_shipping@2x.png';
+import { formatPrice } from '../../../helpers/price';
 import './ItemCard.scss';
 
 type ItemCardProps = {
   item: Item;
   handleClick: () => void;
 };
-
-function formatPrice(price: ItemPrice) {
-  const { amount, decimals, currency } = price;
-  const fullPrice = amount + decimals / (10 * amount.toString().length);
-
-  return new Intl.NumberFormat('en-IN', { style: 'currency', currency }).format(fullPrice);
-}
 
 export const ItemCard = ({ item, handleClick }: ItemCardProps): JSX.Element => (
   <>
@@ -24,7 +18,7 @@ export const ItemCard = ({ item, handleClick }: ItemCardProps): JSX.Element => (
         <div className="item-info">
           <div className="first-row">
             <span className="item-price">{formatPrice(item.price)}</span>
-            {item.free_shipping && <img src={FreeShippingLogo} alt="free-shipping" />}
+            {item.freeShipping && <img src={FreeShippingLogo} alt="free-shipping" />}
           </div>
           <p>{item.title}</p>
           <p>{item.condition}</p>

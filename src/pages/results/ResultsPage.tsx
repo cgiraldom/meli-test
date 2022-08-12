@@ -4,13 +4,12 @@ import { useSearchParams } from 'react-router-dom';
 import { Item, Category } from '../../domain/item';
 import { ItemService } from '../../domain/services';
 import { SearchResults, Breadcrumb } from '../../components';
-import './SearchPage.scss';
 
-type SearchProps = {
+type ResultsProps = {
   itemService: ItemService;
 };
 
-export const SearchPage = ({ itemService }: SearchProps): JSX.Element => {
+export const ResultsPage = ({ itemService }: ResultsProps): JSX.Element => {
   const [items, setItems] = React.useState<Array<Item>>([]);
   const [categories, setCategories] = React.useState<Array<Category>>([]);
   const [searchParams] = useSearchParams();

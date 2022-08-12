@@ -5,11 +5,12 @@ export interface Item {
   picture: string;
   condition: string;
   location: string;
-  free_shipping: boolean;
+  freeShipping: boolean;
 }
 
 export interface ItemDetails extends Item {
-  sold_quantity: number;
+  categories: Array<Category>;
+  soldQuantity: number;
   description: string;
 }
 

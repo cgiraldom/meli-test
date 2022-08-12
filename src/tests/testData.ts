@@ -1,4 +1,27 @@
 import { SearchResult } from '../domain/services';
+import { ItemDetails } from '../domain/item';
+
+export const testItem: ItemDetails = {
+  id: 'testId1',
+  title: 'Apple Ipod touch 5g Negro Igual A Nuevo',
+  price: {
+    currency: 'USD',
+    amount: 1000,
+    decimals: 56,
+  },
+  picture: 'https://via.placeholder.com/680',
+  condition: 'Completo Unico!',
+  location: 'Mendoza',
+  freeShipping: true,
+  categories: [
+    { id: '1', name: 'Electrónica, Audio y Video' },
+    { id: '2', name: 'Reproductores' },
+    { id: '3', name: '32 GB' },
+  ],
+  soldQuantity: 300,
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+};
 
 export const results: SearchResult = {
   categories: [
@@ -18,7 +41,7 @@ export const results: SearchResult = {
       picture: 'https://via.placeholder.com/180',
       condition: 'Completo Unico!',
       location: 'Mendoza',
-      free_shipping: true,
+      freeShipping: true,
     },
     {
       id: 'testId2',
@@ -31,7 +54,7 @@ export const results: SearchResult = {
       picture: 'https://via.placeholder.com/180',
       condition: 'Completo Unico!',
       location: 'Mendoza',
-      free_shipping: false,
+      freeShipping: false,
     },
     {
       id: 'testId3',
@@ -44,7 +67,7 @@ export const results: SearchResult = {
       picture: 'https://via.placeholder.com/180',
       condition: 'Completo Unico!',
       location: 'Dosquebradas',
-      free_shipping: false,
+      freeShipping: false,
     },
     {
       id: 'testId4',
@@ -57,7 +80,7 @@ export const results: SearchResult = {
       picture: 'https://via.placeholder.com/180',
       condition: 'Completo Unico!',
       location: 'Dosquebradas',
-      free_shipping: true,
+      freeShipping: true,
     },
   ],
 };

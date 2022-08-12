@@ -2,7 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { MainLayout } from './layouts';
-import { SearchPage } from './pages/search';
+import { ResultsPage } from './pages/results';
+import { ItemPage } from './pages/item';
 import { testService } from './tests/testService';
 import './App.scss';
 
@@ -22,7 +23,15 @@ function App() {
           path="/items"
           element={
             <MainLayout>
-              <SearchPage itemService={testService} />
+              <ResultsPage itemService={testService} />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/items:id"
+          element={
+            <MainLayout>
+              <ItemPage itemService={testService} />
             </MainLayout>
           }
         />
