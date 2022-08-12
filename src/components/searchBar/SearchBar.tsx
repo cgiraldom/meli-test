@@ -22,25 +22,27 @@ export const SearchBar = (): JSX.Element => {
   };
 
   return (
-    <header className="search-bar-container">
-      <img src={Logo} alt="logo" />
-      <input
-        className="search-input"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        onKeyPress={handleKeyPress}
-        type="search"
-        name="search"
-        aria-label="search an item"
-        placeholder="Nunca dejes de buscar"
-      />
-      <button
-        className="search-button"
-        onClick={() => navigate(`/items?search=${value}`)}
-        name="search"
-      >
-        <img className="search-icon" src={SearchIcon} alt="search-icon" />
-      </button>
+    <header className="header">
+      <div className="search-bar-container">
+        <img src={Logo} alt="logo" />
+        <input
+          className="search-input"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          onKeyPress={handleKeyPress}
+          type="search"
+          name="search"
+          aria-label="search an item"
+          placeholder="Nunca dejes de buscar"
+        />
+        <button
+          className="search-button"
+          onClick={() => navigate(`/items?search=${value}`)}
+          name="search"
+        >
+          <img className="search-icon" src={SearchIcon} alt="search-icon" />
+        </button>
+      </div>
     </header>
   );
 };
