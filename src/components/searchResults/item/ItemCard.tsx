@@ -12,7 +12,7 @@ type ItemCardProps = {
 
 export const ItemCard = ({ item, handleClick }: ItemCardProps): JSX.Element => (
   <>
-    <article className="item-card-container">
+    <article onClick={handleClick} className="item-card-container">
       <img className="item-img" src={item.picture} alt={item.title} />
       <div className="item-info-container">
         <div className="item-info">
