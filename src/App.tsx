@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { MainLayout } from './layouts';
 import { ResultsPage } from './pages/results';
 import { ItemPage } from './pages/item';
-import { testService } from './tests/testService';
+import { itemService } from './http/services/itemService';
 import './App.scss';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           path="/items"
           element={
             <MainLayout>
-              <ResultsPage itemService={testService} />
+              <ResultsPage itemService={itemService} />
             </MainLayout>
           }
         />
@@ -31,7 +31,7 @@ function App() {
           path="/items:id"
           element={
             <MainLayout>
-              <ItemPage itemService={testService} />
+              <ItemPage itemService={itemService} />
             </MainLayout>
           }
         />
