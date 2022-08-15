@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { ItemService } from '../../domain/services';
+import { ItemService, SearchResult, ItemResult } from '../../domain/services';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
@@ -12,9 +12,9 @@ const api = axios.create({
 
 export const itemService: ItemService = {
   searchItems(query: string) {
-    return api.get(`/items?search=${query}`);
+    return api.get<SearchResult>(`/api/items?search=${query}`).then(res => res.data);
   },
   getItemById(id: string) {
-    return api.get(`/items:${id}`);
+    return api.get<ItemResult>(`/api/items/${id}`).then(res => res.data);
   },
 };

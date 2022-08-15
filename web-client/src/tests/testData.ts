@@ -24,6 +24,10 @@ export const testItem: ItemDetails = {
 };
 
 export const results: SearchResult = {
+  author: {
+    name: 'test name',
+    lastname: 'test last name',
+  },
   categories: [
     { id: '1', name: 'Electrónica, Audio y Video' },
     { id: '2', name: 'Reproductores' },

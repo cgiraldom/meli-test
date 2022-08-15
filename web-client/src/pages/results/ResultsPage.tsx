@@ -17,14 +17,21 @@ export const ResultsPage = ({ itemService }: ResultsProps): JSX.Element => {
 
   React.useEffect(() => {
     async function getItems(query: string) {
-      const result = await itemService.searchItems(query);
+      try {
+        const result = await itemService.searchItems(query);
+        const { items } = result;
+        const firstFour = items.slice(0, 4);
+        console.log(firstFour);
 
-      setItems(result.items);
-      setCategories(result.categories);
+        setItems(firstFour);
+        setCategories(result.categories);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     if (search) getItems(search);
-  }, [itemService, search]);
+  }, [search, setItems, itemService]);
 
   return (
     <section className="search-page">

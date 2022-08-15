@@ -16,8 +16,9 @@ export const ItemPage = ({ itemService }: ItemProps): JSX.Element => {
   React.useEffect(() => {
     async function getItem(id: string) {
       const result = await itemService.getItemById(id);
+      console.log(result);
 
-      setItem(result);
+      setItem(result.item);
     }
 
     if (id) getItem(id);

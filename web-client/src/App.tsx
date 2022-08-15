@@ -28,7 +28,7 @@ function App() {
           }
         />
         <Route
-          path="/items:id"
+          path="/items/:id"
           element={
             <MainLayout>
               <ItemPage itemService={itemService} />

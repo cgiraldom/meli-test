@@ -16,7 +16,7 @@ export const SearchResults = ({ foundItems }: SearchResultsProps): JSX.Element =
     <div className="results-container">
       {foundItems.map((item, index) => {
         return (
-          <ItemCard key={item.id} item={item} handleClick={() => navigate(`/items:${item.id}`)} />
+          <ItemCard key={item.id} item={item} handleClick={() => navigate(`/items/${item.id}`)} />
         );
       })}
     </div>
