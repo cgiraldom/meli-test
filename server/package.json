@@ -5,7 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "tsc & node build/server.ts"
+    "serve": "tsc & node build/server.js"
   },
   "author": "Carlos Giraldo",
   "license": "ISC",

@@ -1,12 +1,21 @@
 import { Search, Item, ItemDetails } from '../../DTO/item';
+import { ItemDTO, SearchDTO, CategoriesDTO, DescriptionDTO } from './types';
 
-export function maptoItemDetails({ item, description, categories } : any): ItemDetails {
+export function maptoItemDetails({
+  item,
+  description,
+  categories,
+}: {
+  item: ItemDTO;
+  description: DescriptionDTO;
+  categories: CategoriesDTO;
+}): ItemDetails {
   return {
     author: {
       name: 'Carlos',
       last_name: 'Giraldo',
     },
-      item: {
+    item: {
       id: item.id,
       title: item.title,
       picture: item.thumbnail,
@@ -24,7 +33,7 @@ export function maptoItemDetails({ item, description, categories } : any): ItemD
   };
 }
 
-export function mapToSearch(response: any): Search {
+export function mapToSearch(response: SearchDTO): Search {
   return {
     author: {
       name: 'Carlos',
@@ -32,16 +41,16 @@ export function mapToSearch(response: any): Search {
     },
     categories: response.filters[0].values[0].path_from_root,
     items: response.results.map(mapToItem),
-  }
+  };
 }
 
-function mapToItem(itemDTO: any): Item {
+function mapToItem(itemDTO: ItemDTO): Item {
   return {
     id: itemDTO.id,
     title: itemDTO.title,
     picture: itemDTO.thumbnail,
     condition: itemDTO.condition,
-    location: itemDTO.address.city_name,
+    location: itemDTO.seller_address.city.name,
     free_shipping: itemDTO.shipping.free_shipping,
     price: {
       currency: itemDTO.currency_id,
