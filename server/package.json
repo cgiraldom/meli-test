@@ -2,9 +2,10 @@
   "name": "meli-test-api",
   "version": "1.0.0",
   "description": "test api",
-  "main": "server.ts",
+  "main": "src/server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "tsc & node build/server.ts"
   },
   "author": "Carlos Giraldo",
   "license": "ISC",

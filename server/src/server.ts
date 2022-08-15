@@ -4,9 +4,11 @@ import express from 'express';
 import router from './routes/items';
 const app = express();
 
-app.settings('query parser', function (str: string) {
+app.set('query parser', function (str: string) {
   return qs.parse(str);
 });
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -23,8 +25,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', router);
+app.use(router);
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => console.log(`App listening on PORT ${port}`));
