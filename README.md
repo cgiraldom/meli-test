@@ -4,6 +4,10 @@ The web client is built using `Create React App` and TypeScript. Please check [h
 
 All the React components inside the `src/components` folder we're created as pure functional components. This make tests easier to write and the components easier to understand.
 
+### Styles
+
+SASS is used as it gives more flexibility for writing an scalable CSS architecture.
+
 ### Routing
 The `react-router` library is used to handle the routing logic.
 
@@ -22,12 +26,12 @@ The components know about this class and all the api http related logic will be 
 ## Server
 The api is built using node and express and TypeScript.
 
-## DTO
+### DTO
 Inside the `src/DTO` folder, all the domain transfer objects are defined. This will be the contract with the web client.
 
 Inside this folder the domain error type and the posible error codes are also defined.
 
-## Error handling
+### Error handling
 A common error handler is created to handle all uncaught exceptions. 
 
 The controllers can also throw app domain error when needed.
