@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { MainLayout } from './layouts';
 import { ResultsPage } from './pages/results';
 import { ItemPage } from './pages/item';
+import { NotFound } from './pages/notFound';
 import { itemService } from './http/services/itemService';
 import './App.scss';
 
@@ -32,6 +33,14 @@ function App() {
           element={
             <MainLayout>
               <ItemPage itemService={itemService} />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/notfound"
+          element={
+            <MainLayout>
+              <NotFound />
             </MainLayout>
           }
         />

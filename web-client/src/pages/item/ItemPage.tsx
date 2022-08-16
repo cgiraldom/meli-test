@@ -25,7 +25,7 @@ export const ItemPage = ({ itemService }: ItemProps): JSX.Element => {
   }, [itemService, id]);
 
   return item ? (
-    <section className="search-page">
+    <section className="item-page">
       <Breadcrumb categories={item.categories} />
       <ItemDetailsCard item={item} />
     </section>

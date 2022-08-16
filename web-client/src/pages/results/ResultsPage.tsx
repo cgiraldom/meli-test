@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
 import { Item, Category } from '../../domain/item';
 import { ItemService } from '../../domain/services';
+import { HttpError, ErrorCode } from '../../domain/error';
 import { SearchResults, Breadcrumb } from '../../components';
 
 type ResultsProps = {
@@ -14,6 +15,7 @@ export const ResultsPage = ({ itemService }: ResultsProps): JSX.Element => {
   const [categories, setCategories] = React.useState<Array<Category>>([]);
   const [searchParams] = useSearchParams();
   const search = searchParams.get('search');
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     async function getItems(query: string) {
@@ -25,12 +27,16 @@ export const ResultsPage = ({ itemService }: ResultsProps): JSX.Element => {
         setItems(firstFour);
         setCategories(result.categories);
       } catch (error) {
-        console.log(error);
+        console.log({ error });
+        const typedError = error as HttpError;
+
+        if (typedError.errorCode === ErrorCode.NO_ITEMS_FOUND)
+          navigate('/notfound', { replace: true });
       }
     }
 
     if (search) getItems(search);
-  }, [search, setItems, itemService]);
+  }, [search, setItems, itemService, navigate]);
 
   return (
     <section className="search-page">

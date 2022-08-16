@@ -1,0 +1,10 @@
+.not-found-container {
+  margin-top: 32px;
+  padding: 32px;
+  background-color: white;
+
+  & .not-found-title {
+    margin-bottom: 32px;
+    font-size: 46px;
+  }
+}
