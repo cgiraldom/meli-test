@@ -18,10 +18,12 @@ export const ItemDetailsCard = ({ item }: ItemDetailsProps): JSX.Element => {
         <span className="item-price">{formatPrice(item.price)}</span>
         <button>Comprar</button>
       </section>
-      <section className="item-description">
-        <h3>Descripción del producto</h3>
-        <p>{item.description}</p>
-      </section>
+      {item.description && (
+        <section className="item-description">
+          <h3>Descripción del producto</h3>
+          <p>{item.description}</p>
+        </section>
+      )}
     </div>
   );
 };

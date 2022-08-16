@@ -12,7 +12,7 @@ export const SearchBar = (): JSX.Element => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (search) setValue(search);
+    setValue(search || '');
   }, [search]);
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLElement>) => {

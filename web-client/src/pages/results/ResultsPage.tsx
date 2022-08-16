@@ -21,7 +21,6 @@ export const ResultsPage = ({ itemService }: ResultsProps): JSX.Element => {
         const result = await itemService.searchItems(query);
         const { items } = result;
         const firstFour = items.slice(0, 4);
-        console.log(firstFour);
 
         setItems(firstFour);
         setCategories(result.categories);
