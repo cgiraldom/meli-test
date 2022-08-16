@@ -5,6 +5,7 @@ import { Search, ItemDetails } from '../DTO/item';
 import { mapToSearch, maptoItemDetails } from './handlers/item';
 import { getCategories } from './handlers/categories';
 import { SearchDTO, ItemDTO, CategoriesDTO, DescriptionDTO } from './handlers/types';
+import { AppError, HttpCode } from '../exceptions/appError';
 
 async function searchItems(
   req: Request,
@@ -17,6 +18,12 @@ async function searchItems(
     .get<SearchDTO>(`https://api.mercadolibre.com/sites/MLA/search?q=:${queryParam}`)
     .then(res => res.data);
 
+  if (foundItems.results.length === 0) {
+    throw new AppError({
+      httpCode: HttpCode.NOT_FOUND,
+      description: 'No items match your query',
+    });
+  }
   const categories = await getCategories(foundItems);
   const search = mapToSearch(foundItems, categories);
 
