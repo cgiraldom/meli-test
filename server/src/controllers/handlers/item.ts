@@ -1,5 +1,6 @@
 import { Search, Item, ItemDetails } from '../../DTO/item';
 import { ItemDTO, SearchDTO, CategoriesDTO, DescriptionDTO } from './types';
+import { getCategories } from './categories';
 
 export function maptoItemDetails({
   item,
@@ -27,19 +28,19 @@ export function maptoItemDetails({
       },
       location: item.seller_address.city.name,
       sold_quantity: item.sold_quantity,
-      description: description.text,
+      description: description.plain_text,
       categories: categories.path_from_root,
     },
   };
 }
 
-export function mapToSearch(response: SearchDTO): Search {
+export function mapToSearch(response: SearchDTO, category?: CategoriesDTO): Search {
   return {
     author: {
       name: 'Carlos',
       last_name: 'Giraldo',
     },
-    categories: response.filters[0].values[0].path_from_root,
+    categories: category ? category.path_from_root : [],
     items: response.results.map(mapToItem),
   };
 }

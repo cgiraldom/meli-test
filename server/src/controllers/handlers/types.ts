@@ -23,7 +23,7 @@ export type Filter<T> = {
   values: Array<T>;
 };
 
-type AppliedFilter = {
+export type AppliedFilter = {
   id: string;
   name: string;
   path_from_root: Array<{
@@ -52,8 +52,13 @@ type ShippingDTO = {
 export type CategoriesDTO = {
   id: string;
   name: string;
+  path_from_root: Array<{
+    id: string;
+    name: string;
+  }>;
 };
 
 export type DescriptionDTO = {
   text: string;
+  plain_text: string;
 };

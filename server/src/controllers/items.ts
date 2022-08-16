@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import { Search, ItemDetails } from '../DTO/item';
 import { mapToSearch, maptoItemDetails } from './handlers/item';
+import { getCategories } from './handlers/categories';
 import { SearchDTO, ItemDTO, CategoriesDTO, DescriptionDTO } from './handlers/types';
 
 async function searchItems(
@@ -16,7 +17,10 @@ async function searchItems(
     .get<SearchDTO>(`https://api.mercadolibre.com/sites/MLA/search?q=:${queryParam}`)
     .then(res => res.data);
 
-  return res.status(200).json(mapToSearch(foundItems));
+  const categories = await getCategories(foundItems);
+  const search = mapToSearch(foundItems, categories);
+
+  return res.status(200).json(search);
 }
 
 async function getItem(
