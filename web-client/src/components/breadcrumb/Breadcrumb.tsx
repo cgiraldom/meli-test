@@ -12,14 +12,14 @@ export const Breadcrumb = ({ categories }: BreadcrumbProps): JSX.Element => (
   <nav className="categories-breadcrumb">
     {categories.map((category, index) => {
       return (
-        <>
+        <div key={category.id}>
           <span key={category.id} className="category">
             {category.name}
           </span>
           {index < categories.length - 1 && (
             <ArrowForwardIosIcon className="breadcrumb-separator" fontSize="small" />
           )}
-        </>
+        </div>
       );
     })}
   </nav>
