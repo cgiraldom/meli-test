@@ -1,5 +1,7 @@
 import { Response } from 'express';
+
 import { AppError, HttpCode } from './appError';
+import { DomainError, ErrorCode } from '../DTO/error';
 
 class ErrorHandler {
   private isTrustedError(error: Error): boolean {
@@ -11,7 +13,9 @@ class ErrorHandler {
   }
 
   private handleTrustedError(error: AppError, response: Response): void {
-    response.status(error.httpCode).json({ message: error.message });
+    response
+      .status(error.httpCode)
+      .json({ errorCode: error.errorCode, errorMessage: error.message });
   }
 
   private handleCriticalError(error: Error | AppError, response?: Response): void {

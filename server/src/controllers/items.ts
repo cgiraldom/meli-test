@@ -6,6 +6,7 @@ import { mapToSearch, maptoItemDetails } from './handlers/item';
 import { getCategories } from './handlers/categories';
 import { SearchDTO, ItemDTO, CategoriesDTO, DescriptionDTO } from './handlers/types';
 import { AppError, HttpCode } from '../exceptions/appError';
+import { ErrorCode } from '../DTO/error';
 
 async function searchItems(
   req: Request,
@@ -21,6 +22,7 @@ async function searchItems(
   if (foundItems.results.length === 0) {
     throw new AppError({
       httpCode: HttpCode.NOT_FOUND,
+      errorCode: ErrorCode.NO_ITEMS_FOUND,
       description: 'No items match your query',
     });
   }

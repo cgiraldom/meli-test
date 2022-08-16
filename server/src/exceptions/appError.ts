@@ -1,3 +1,5 @@
+import { ErrorCode } from '../DTO/error';
+
 export enum HttpCode {
   OK = 200,
   BAD_REQUEST = 400,
@@ -9,6 +11,7 @@ export enum HttpCode {
 interface AppErrorArgs {
   name?: string;
   httpCode: HttpCode;
+  errorCode: ErrorCode;
   description: string;
   isOperational?: boolean;
 }
@@ -16,6 +19,7 @@ interface AppErrorArgs {
 export class AppError extends Error {
   public readonly name: string;
   public readonly httpCode: HttpCode;
+  public readonly errorCode: ErrorCode;
   public readonly isOperational: boolean = true;
 
   constructor(args: AppErrorArgs) {
@@ -25,6 +29,7 @@ export class AppError extends Error {
 
     this.name = args.name || 'Error';
     this.httpCode = args.httpCode;
+    this.errorCode = args.errorCode;
 
     if (args.isOperational !== undefined) {
       this.isOperational = args.isOperational;
